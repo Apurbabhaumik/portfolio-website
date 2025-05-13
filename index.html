@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Apurba Bhaumik - Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    :root {
+      --bg-color: #f4f4f4;
+      --text-color: #333;
+      --header-bg: #333;
+      --header-text: white;
+    }
+
+    body.dark-mode {
+      --bg-color: #121212;
+      --text-color: #e0e0e0;
+      --header-bg: #1f1f1f;
+      --header-text: #f0f0f0;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      transition: all 0.3s ease;
+    }
+
+    header {
+      background-color: var(--header-bg);
+      color: var(--header-text);
+      padding: 10px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: var(--header-text);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .toggle-btn {
+      background: transparent;
+      border: 2px solid var(--header-text);
+      color: var(--header-text);
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    section {
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .project-card {
+      background-color: rgba(0,0,0,0.05);
+      padding: 20px;
+      margin: 20px auto;
+      width: 80%;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+
+    body.dark-mode .project-card {
+      background-color: rgba(255,255,255,0.05);
+    }
+
+    footer {
+      background-color: var(--header-bg);
+      color: var(--header-text);
+      text-align: center;
+      padding: 15px;
+    }
+
+    a {
+      color: inherit;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="toggle-btn" onclick="toggleMode()">Toggle Theme</button>
+  </header>
+
+  <!-- Home Section -->
+  <section id="home">
+    <h1>Welcome to My Portfolio</h1>
+    <p>Hi, I'm <strong>Apurba Bhaumik</strong>, a B.Tech Computer Science student at Lovely Professional University. I'm passionate about web development, AI, and open-source contributions. This is a collection of my work, projects, and skills.</p>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I'm currently pursuing my B.Tech in Computer Science at Lovely Professional University. My interests include web development, machine learning, and creating meaningful projects. I'm always looking to improve my skills and collaborate on exciting projects. I believe in continuous learning and am passionate about contributing to open-source communities.</p>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>My Projects</h2>
+    <div class="project-card">
+      <h3>Portfolio Website</h3>
+      <p>This is the website you're currently viewing. It's a simple portfolio to showcase my skills and projects.</p>
+      <a href="https://github.com/Apurbabhaumik/portfolio-website" target="_blank">View Project</a>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>Email me at: <a href="mailto:apurbabhaumik007@gmail.com">apurbabhaumik007@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/apurba777" target="_blank">Apurba Bhaumik</a></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Apurba Bhaumik. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+  </script>
+</body>
+</html>
