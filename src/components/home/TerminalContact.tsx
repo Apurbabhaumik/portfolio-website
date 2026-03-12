@@ -113,19 +113,48 @@ export default function TerminalContact() {
     const cmd = commandInput.trim().toLowerCase();
     const newLogs = [...terminalLogs, `> ${cmd}`];
 
+    // Helper to scroll to section
+    const scrollToSection = (id: string, logMsg: string) => {
+      newLogs.push(logMsg);
+      setTerminalLogs(newLogs);
+      setCommandInput("");
+      setTimeout(() => {
+        setTerminalOpen(false);
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+      }, 500);
+    };
+
     switch (cmd) {
       case "help":
-        newLogs.push("Available commands: about, skills, contact, matrix, clear, exit");
+        newLogs.push("Available commands: about, skills, projects, education, certificates, achievements, playground, profiles, contact, matrix, clear, exit");
         break;
       case "about":
-        newLogs.push("Apurba Bhaumik - Full Stack Developer. Passionate about DSA and AI systems.");
-        break;
+        scrollToSection("about-me", "Navigating to About section...");
+        return;
       case "skills":
-        newLogs.push("React.js, Node.js, Express, MongoDB, Java, C++, TypeScript");
-        break;
+        scrollToSection("skills", "Navigating to Skills section...");
+        return;
+      case "projects":
+        scrollToSection("projects", "Navigating to Projects section...");
+        return;
+      case "education":
+        scrollToSection("education", "Navigating to Education section...");
+        return;
+      case "certificates":
+        scrollToSection("certificates", "Navigating to Certificates section...");
+        return;
+      case "achievements":
+        scrollToSection("achievements", "Navigating to Achievements section...");
+        return;
+      case "playground":
+        scrollToSection("playground", "Navigating to Playground section...");
+        return;
+      case "profiles":
+        scrollToSection("profiles", "Navigating to Coding Profiles section...");
+        return;
       case "contact":
-        newLogs.push("Email: apurbabhaumik007@gmail.com | LinkedIn: /in/apurbabhaumik77");
-        break;
+        scrollToSection("contact", "Navigating to Contact section...");
+        return;
       case "matrix":
         newLogs.push("Initializing Protocol 0xM...");
         setShowMatrix(true);
