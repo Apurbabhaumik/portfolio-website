@@ -203,14 +203,14 @@ export default function Playground() {
   };
 
   return (
-    <section id="playground" className="relative w-full py-32 bg-[#050505] overflow-hidden">
+    <section id="playground" className="relative w-full py-32 bg-background dark:bg-[#050505] overflow-hidden">
       <div className="container mx-auto px-6 md:px-12">
         <div className="mb-16">
           <motion.h2 
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-bold tracking-tight mb-4"
+            className="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-primary dark:text-white"
           >
             Playground Arcade.
           </motion.h2>
@@ -225,10 +225,10 @@ export default function Playground() {
           </motion.p>
         </div>
 
-        <div className="bg-[#0a0a0a] border border-border rounded-3xl p-6 md:p-12 shadow-2xl flex flex-col md:flex-row gap-8 min-h-[500px]">
+        <div className="bg-card dark:bg-[#0a0a0a] border border-border dark:border-white/10 rounded-3xl p-6 md:p-12 shadow-2xl flex flex-col md:flex-row gap-8 min-h-[500px]">
           
           {/* Game Selector Sidebar */}
-          <div className="flex flex-row md:flex-col gap-2 overflow-x-auto pb-4 md:pb-0 md:w-48 border-b md:border-b-0 md:border-r border-white/10 md:pr-6 scrollbar-hide">
+          <div className="flex flex-row md:flex-col gap-2 overflow-x-auto pb-4 md:pb-0 md:w-48 border-b md:border-b-0 md:border-r border-border dark:border-white/10 md:pr-6 scrollbar-hide">
             {games.map((game) => (
               <button
                 key={game.id}
@@ -236,7 +236,7 @@ export default function Playground() {
                 className={`flex items-center gap-3 px-4 py-3 rounded-xl whitespace-nowrap transition-all interactive ${
                   activeGame === game.id 
                     ? "bg-accent/10 border border-accent/20 text-accent font-medium shadow-[0_0_15px_rgba(0,255,204,0.1)]" 
-                    : "bg-transparent border border-transparent text-zinc-500 hover:text-white hover:bg-white/5"
+                    : "bg-transparent border border-transparent text-secondary dark:text-zinc-500 hover:text-primary dark:hover:text-white hover:bg-card-hover dark:hover:bg-white/5"
                 }`}
               >
                 {game.icon}
@@ -260,7 +260,7 @@ export default function Playground() {
                       initial={{ height: 0 }}
                       animate={{ height: `${height}%` }}
                       transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                      className="w-full max-w-[2rem] bg-zinc-800 rounded-t-sm relative group"
+                      className="w-full max-w-[2rem] bg-primary/20 dark:bg-zinc-800 rounded-t-sm relative group"
                     >
                       <div className="absolute inset-0 bg-gradient-to-t from-transparent to-accent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     </motion.div>
@@ -291,10 +291,10 @@ export default function Playground() {
                           >
                             {/* FRONT (HIDDEN SIDE/QUESTION MARK) */}
                             <div 
-                              className="absolute inset-0 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center hover:border-accent/50 transition-colors"
+                              className="absolute inset-0 bg-background dark:bg-white/5 border border-border dark:border-white/10 rounded-xl flex items-center justify-center hover:border-accent/50 transition-colors"
                               style={{ backfaceVisibility: "hidden" }}
                             >
-                              <span className="text-white/20 text-xs font-mono">?</span>
+                              <span className="text-secondary/50 dark:text-white/20 text-xs font-mono">?</span>
                             </div>
                             
                             {/* BACK (REVEALED SIDE/NUMBER) */}
@@ -328,10 +328,10 @@ export default function Playground() {
                 <motion.div key="reaction" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="w-full h-full flex items-center justify-center">
                   <button 
                     onClick={handleReactionClick}
-                    className={`w-full max-w-md aspect-video rounded-3xl flex items-center justify-center text-2xl font-bold transition-colors interactive ${
-                      reactionState === "waiting" ? "bg-red-500/20 text-red-500 border border-red-500/50" :
-                      reactionState === "ready" ? "bg-accent/20 text-accent border border-accent/50" :
-                      "bg-white/5 text-white border border-white/10 hover:bg-white/10"
+                    className={`w-full max-w-md aspect-video rounded-3xl flex items-center justify-center text-2xl font-bold transition-colors interactive shadow-md ${
+                      reactionState === "waiting" ? "bg-red-500/10 dark:bg-red-500/20 text-red-500 dark:text-red-500 border border-red-500/20 dark:border-red-500/50" :
+                      reactionState === "ready" ? "bg-accent/10 dark:bg-accent/20 text-accent border border-accent/30 dark:border-accent/50" :
+                      "bg-card dark:bg-white/5 text-primary dark:text-white border border-border dark:border-white/10 hover:bg-card-hover dark:hover:bg-white/10"
                     }`}
                   >
                     {reactionState === "waiting" ? "Wait for Green..." :
@@ -348,7 +348,7 @@ export default function Playground() {
                   <div className="flex gap-12 mb-8">
                     <div className="text-center">
                       <div className="text-sm font-mono text-zinc-500 mb-1">Time</div>
-                      <div className="text-3xl font-bold text-white">{cpsTimeLeft}s</div>
+                      <div className="text-3xl font-bold text-primary dark:text-white">{cpsTimeLeft}s</div>
                     </div>
                     <div className="text-center">
                       <div className="text-sm font-mono text-zinc-500 mb-1">Score</div>
@@ -358,7 +358,7 @@ export default function Playground() {
                   <button
                     onClick={handleCpsClick}
                     disabled={cpsTimeLeft === 0}
-                    className="w-full max-w-md aspect-video bg-white/5 border border-white/10 rounded-3xl flex items-center justify-center text-xl font-medium text-zinc-300 hover:bg-white/10 interactive disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full max-w-md aspect-video bg-card dark:bg-white/5 border border-border dark:border-white/10 rounded-3xl flex items-center justify-center text-xl font-medium text-primary dark:text-zinc-300 hover:bg-card-hover dark:hover:bg-white/10 interactive disabled:opacity-50 disabled:cursor-not-allowed shadow-md"
                   >
                     {cpsTimeLeft === 0 ? "Time's Up!" : cpsActive ? "CLICK!" : "Click to Start"}
                   </button>
@@ -379,7 +379,7 @@ export default function Playground() {
                     </div>
                   ) : null}
                   <div 
-                    className="relative bg-black border border-white/10 rounded-md overflow-hidden shadow-[0_0_30px_rgba(0,255,204,0.05)]"
+                    className="relative bg-background dark:bg-black border border-border dark:border-white/10 rounded-md overflow-hidden shadow-[0_0_30px_rgba(0,255,204,0.05)]"
                     style={{ width: "300px", height: "300px" }}
                   >
                     {snake.map((segment, i) => (
@@ -402,14 +402,14 @@ export default function Playground() {
               {activeGame === "tictactoe" && (
                 <motion.div key="ttt" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex flex-col items-center">
                   <button onClick={() => {setBoard(Array(9).fill(null)); setXIsNext(true)}} className="absolute top-0 right-0 p-2 text-zinc-500 hover:text-accent interactive"><RefreshCcw size={20}/></button>
-                  <div className="grid grid-cols-3 gap-2 bg-white/10 p-2 rounded-2xl w-64 max-w-full">
+                  <div className="grid grid-cols-3 gap-2 bg-card dark:bg-white/10 p-4 rounded-2xl w-64 max-w-full border border-border dark:border-transparent">
                     {board.map((cell, i) => (
                       <button
                         key={i}
                         onClick={() => handleTTTClick(i)}
-                        className="aspect-square bg-[#0a0a0a] rounded-xl text-3xl font-bold text-white hover:bg-white/5 interactive transition-colors flex items-center justify-center"
+                        className="aspect-square bg-background dark:bg-[#0a0a0a] rounded-xl border border-border dark:border-transparent shadow-sm dark:shadow-none text-3xl font-bold text-primary dark:text-white hover:bg-card-hover dark:hover:bg-white/5 interactive transition-colors flex items-center justify-center"
                       >
-                        {cell === "X" ? <span className="text-accent">X</span> : <span className="text-zinc-500">{cell}</span>}
+                        {cell === "X" ? <span className="text-accent">X</span> : <span className="text-primary dark:text-zinc-500">{cell}</span>}
                       </button>
                     ))}
                   </div>
@@ -422,13 +422,13 @@ export default function Playground() {
               {/* RPS */}
               {activeGame === "rps" && (
                 <motion.div key="rps" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex flex-col items-center w-full">
-                  <div className="text-lg font-mono text-zinc-300 mb-12 text-center h-8">{rpsResult}</div>
+                  <div className="text-lg font-mono text-primary dark:text-zinc-300 mb-12 text-center h-8">{rpsResult}</div>
                   <div className="flex gap-4">
                     {["Rock", "Paper", "Scissors"].map(choice => (
                       <button 
                         key={choice} 
                         onClick={() => playRPS(choice)}
-                        className="px-6 py-4 bg-white/5 border border-white/10 rounded-xl hover:border-accent hover:text-accent interactive transition-all hover:-translate-y-1"
+                        className="px-6 py-4 bg-card dark:bg-white/5 border border-border dark:border-white/10 text-primary dark:text-white rounded-xl hover:border-accent hover:text-accent dark:hover:text-accent interactive transition-all hover:-translate-y-1 shadow-sm"
                       >
                         {choice}
                       </button>

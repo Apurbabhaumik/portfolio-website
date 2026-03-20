@@ -67,18 +67,18 @@ export default function SkillsConstellation() {
   const filterSkills = activeCategory === "All" ? skills : skills.filter(s => s.category === activeCategory);
 
   return (
-    <section id="skills" className="relative w-full min-h-screen py-32 bg-[#050505] overflow-hidden flex flex-col items-center justify-center border-t border-white/5">
+    <section id="skills" className="relative w-full min-h-screen py-32 bg-background dark:bg-[#050505] overflow-hidden flex flex-col items-center justify-center border-t border-border dark:border-white/5">
       
       {/* Background glow effects */}
-      <div className="absolute top-1/3 left-1/4 w-[40rem] h-[40rem] bg-accent/5 rounded-full blur-[120px] mix-blend-screen pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-[30rem] h-[30rem] bg-purple-500/5 rounded-full blur-[100px] mix-blend-screen pointer-events-none" />
+      <div className="absolute top-1/3 left-1/4 w-[40rem] h-[40rem] bg-accent/5 rounded-full blur-[120px] mix-blend-multiply dark:mix-blend-screen pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-[30rem] h-[30rem] bg-purple-500/5 rounded-full blur-[100px] mix-blend-multiply dark:mix-blend-screen pointer-events-none" />
 
       <div className="container mx-auto px-6 md:px-12 relative z-10 text-center mb-16">
         <motion.h2 
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          className="text-5xl md:text-7xl font-black tracking-tighter mb-6 text-white"
+          className="text-5xl md:text-7xl font-black tracking-tighter mb-6 text-primary dark:text-white"
         >
           Tech <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-500">Ecosystem.</span>
         </motion.h2>
@@ -87,7 +87,7 @@ export default function SkillsConstellation() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ delay: 0.1 }}
-          className="text-zinc-400 text-lg max-w-2xl mx-auto font-light"
+          className="text-secondary dark:text-zinc-400 text-lg max-w-2xl mx-auto font-light"
         >
           A constellation of the languages, frameworks, and tools I use to build digital experiences.
         </motion.p>
@@ -102,7 +102,7 @@ export default function SkillsConstellation() {
         >
           <button 
             onClick={() => setActiveCategory("All")}
-            className={`px-5 py-2 rounded-full text-sm font-mono transition-all duration-300 interactive border ${activeCategory === "All" ? "bg-white text-black border-white shadow-[0_0_15px_rgba(255,255,255,0.4)]" : "bg-white/5 text-zinc-400 border-white/10 hover:bg-white/10 hover:text-white"}`}
+            className={`px-5 py-2 rounded-full text-sm font-mono transition-all duration-300 interactive border ${activeCategory === "All" ? "bg-primary dark:bg-white text-background dark:text-black border-primary dark:border-white shadow-md dark:shadow-[0_0_15px_rgba(255,255,255,0.4)]" : "bg-card dark:bg-white/5 text-secondary dark:text-zinc-400 border-border dark:border-white/10 hover:bg-card-hover dark:hover:bg-white/10 hover:text-primary dark:hover:text-white"}`}
           >
             All Tech
           </button>
@@ -111,11 +111,12 @@ export default function SkillsConstellation() {
             <button 
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-5 py-2 rounded-full text-sm font-mono transition-all duration-300 interactive border flex items-center space-x-2`}
+              className={`px-5 py-2 rounded-full text-sm font-mono transition-all duration-300 interactive border flex items-center space-x-2 text-secondary dark:text-zinc-400 hover:text-primary dark:hover:text-white`}
               style={{ 
                 backgroundColor: activeCategory === category ? `${categoryColors[category]}20` : "transparent",
-                borderColor: activeCategory === category ? categoryColors[category] : "rgba(255,255,255,0.1)",
-                color: activeCategory === category ? categoryColors[category] : "#a1a1aa", // text-zinc-400
+                borderColor: activeCategory === category ? categoryColors[category] : "var(--border)",
+                color: activeCategory === category ? categoryColors[category] : undefined,
+
                 boxShadow: activeCategory === category ? `0 0 15px ${categoryColors[category]}40` : "none"
               }}
             >
@@ -129,9 +130,9 @@ export default function SkillsConstellation() {
         </motion.div>
       </div>
 
-      <div className="relative w-full max-w-6xl h-[70vh] rounded-[3rem] bg-[#0A0A0A]/80 backdrop-blur-3xl overflow-hidden mx-6 border border-white/10 shadow-2xl group/canvas">
+      <div className="relative w-full max-w-6xl h-[70vh] rounded-[3rem] bg-card/80 dark:bg-[#0A0A0A]/80 backdrop-blur-3xl overflow-hidden mx-6 border border-border dark:border-white/10 shadow-2xl group/canvas">
         {/* Draw subtle grid background */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_70%_70%_at_50%_50%,#000_30%,transparent_100%)] transition-opacity duration-700 opacity-50 group-hover/canvas:opacity-100"></div>
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.05)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_70%_70%_at_50%_50%,#000_30%,transparent_100%)] transition-opacity duration-700 opacity-50 group-hover/canvas:opacity-100"></div>
 
         {/* SVG connections logic (visuals only) */}
         <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-20 group-hover/canvas:opacity-40 transition-opacity duration-700">
@@ -185,14 +186,14 @@ export default function SkillsConstellation() {
                 damping: 20, 
                 opacity: { duration: 0.4 }
               }}
-              className="absolute flex items-center justify-center px-5 flex-col py-3 bg-[#0c0c0c]/80 backdrop-blur-sm border rounded-full cursor-grab interactive text-sm font-medium transition-colors shadow-2xl group/node"
+              className="absolute flex items-center justify-center px-5 flex-col py-3 bg-card/90 dark:bg-[#0c0c0c]/80 backdrop-blur-sm border rounded-full cursor-grab interactive text-sm font-medium transition-colors shadow-2xl group/node text-primary dark:text-white"
               style={{ 
                 left: `${skill.x}%`, 
                 top: `${skill.y}%`, 
                 x: "-50%", 
                 y: "-50%",
-                borderColor: isVisible ? `${color}40` : 'rgba(255,255,255,0.05)',
-                color: isVisible ? '#fff' : '#52525b',
+                borderColor: isVisible ? `${color}40` : 'transparent',
+                color: isVisible ? undefined : 'var(--secondary)',
               }}
             >
               <span className="relative z-10">{skill.name}</span>
