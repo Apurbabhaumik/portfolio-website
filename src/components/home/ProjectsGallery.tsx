@@ -48,14 +48,14 @@ export default function ProjectsGallery() {
   const activeData = projects.find((p) => p.id === activeProject);
 
   return (
-    <section id="projects" className="relative w-full min-h-screen py-32 bg-[#030303]">
+    <section id="projects" className="relative w-full min-h-screen py-32 bg-background dark:bg-[#030303]">
       <div className="container mx-auto px-6 md:px-12">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-16 text-primary dark:text-white">
             Selected Work.
           </h2>
         </motion.div>
@@ -105,7 +105,7 @@ export default function ProjectsGallery() {
                   }}
                   className="overflow-hidden"
                 >
-                  <p className="text-sm text-zinc-300 mt-2 line-clamp-2">
+                  <p className="text-sm text-zinc-200 mt-2 line-clamp-2">
                     {project.description}
                   </p>
                 </motion.div>
@@ -122,12 +122,12 @@ export default function ProjectsGallery() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-12 bg-black/80 backdrop-blur-md"
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-12 bg-black/60 dark:bg-black/80 backdrop-blur-md"
             onClick={() => setActiveProject(null)}
           >
             <motion.div
               layoutId={`project-container-${activeData.id}`}
-              className="w-full max-w-5xl h-[80vh] md:h-auto bg-[#0a0a0a] rounded-3xl overflow-hidden border border-border/50 flex flex-col md:flex-row shadow-2xl"
+              className="w-full max-w-5xl h-[80vh] md:h-auto bg-background dark:bg-[#0a0a0a] rounded-3xl overflow-hidden border border-border dark:border-border/50 flex flex-col md:flex-row shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Image Side */}
@@ -151,28 +151,28 @@ export default function ProjectsGallery() {
                       </motion.span>
                       <motion.h3 
                         layoutId={`project-title-${activeData.id}`}
-                        className="text-3xl md:text-5xl font-bold text-white"
+                        className="text-3xl md:text-5xl font-bold text-primary dark:text-white"
                       >
                         {activeData.title}
                       </motion.h3>
                     </div>
                     <button 
                       onClick={() => setActiveProject(null)}
-                      className="p-2 rounded-full bg-white/5 hover:bg-white/10 transition-colors interactive"
+                      className="p-2 rounded-full bg-card hover:bg-card-hover dark:bg-white/5 dark:hover:bg-white/10 transition-colors interactive text-primary dark:text-white"
                     >
                       <X size={24} />
                     </button>
                   </div>
                   
-                  <p className="text-zinc-400 leading-relaxed mb-8">
+                  <p className="text-secondary dark:text-zinc-400 leading-relaxed mb-8">
                     {activeData.description}
                   </p>
 
                   <div className="mb-8">
-                    <h4 className="text-sm text-white mb-4 uppercase tracking-widest font-mono">Technologies</h4>
+                    <h4 className="text-sm text-primary dark:text-white mb-4 uppercase tracking-widest font-mono">Technologies</h4>
                     <div className="flex flex-wrap gap-2">
                       {activeData.tech.map((t) => (
-                        <span key={t} className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-zinc-300">
+                        <span key={t} className="px-3 py-1 bg-card dark:bg-white/5 border border-border dark:border-white/10 rounded-full text-xs text-secondary dark:text-zinc-300">
                           {t}
                         </span>
                       ))}
@@ -185,7 +185,7 @@ export default function ProjectsGallery() {
                     href={activeData.github} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-6 py-3 bg-white text-black rounded-full text-sm font-medium hover:bg-zinc-200 transition-colors interactive"
+                    className="flex items-center gap-2 px-6 py-3 bg-primary dark:bg-white text-background dark:text-black rounded-full text-sm font-medium hover:bg-primary/80 dark:hover:bg-zinc-200 transition-colors interactive shadow-md"
                   >
                     <Github size={18} />
                     View Source
@@ -195,7 +195,7 @@ export default function ProjectsGallery() {
                       href={activeData.link} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-6 py-3 border border-zinc-700 text-white rounded-full text-sm font-medium hover:bg-zinc-800 transition-colors interactive"
+                      className="flex items-center gap-2 px-6 py-3 border border-border dark:border-zinc-700 text-primary dark:text-white rounded-full text-sm font-medium hover:bg-card-hover dark:hover:bg-zinc-800 transition-colors interactive"
                     >
                       <ExternalLink size={18} />
                       Live Demo

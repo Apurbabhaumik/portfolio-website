@@ -2,6 +2,7 @@
 
 import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import GlitchPhoto from "./GlitchPhoto";
 
 const subtitles = [
   "I engineer ecosystems that feel alive.",
@@ -44,13 +45,19 @@ export default function AboutMe() {
             01 / Identity
           </h2>
 
-          <div className="relative max-w-4xl">
-            <p className="text-4xl md:text-5xl lg:text-7xl font-bold leading-[1.1] tracking-tight text-primary mb-8">
-              I don't just write code.<br />
-              <span className="text-secondary font-light italic">
-                {subtitle || "\u00A0"}
-              </span>
-            </p>
+          <div className="flex flex-col lg:flex-row items-start justify-between gap-16 mb-8 mt-12">
+            <div className="relative max-w-4xl lg:w-2/3">
+              <p className="text-4xl md:text-5xl lg:text-7xl font-bold leading-[1.1] tracking-tight text-primary mb-8">
+                I don't just write code.<br />
+                <span className="text-secondary font-light italic mt-2 block">
+                  {subtitle || "\u00A0"}
+                </span>
+              </p>
+            </div>
+            
+            <div className="lg:w-1/3 flex justify-center lg:justify-end w-full">
+               <GlitchPhoto />
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 pt-12 border-t border-border">

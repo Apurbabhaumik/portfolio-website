@@ -17,14 +17,14 @@
 }
 
 :root, .light {
-  --background: #f8fafc;
-  --foreground: #020617;
-  --primary: #0f172a;
-  --secondary: #475569;
-  --accent: #2563eb;
-  --accent-dark: #1d4ed8;
-  --card: rgba(0, 0, 0, 0.04);
-  --card-hover: rgba(0, 0, 0, 0.08);
+  --background: #fdfdfd;
+  --foreground: #0a0a0a;
+  --primary: #111111;
+  --secondary: #666666;
+  --accent: #ff3300;
+  --accent-dark: #cc2900;
+  --card: rgba(0, 0, 0, 0.03);
+  --card-hover: rgba(0, 0, 0, 0.06);
   --border: rgba(0, 0, 0, 0.1);
 }
 

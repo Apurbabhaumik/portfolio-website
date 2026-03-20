@@ -124,7 +124,7 @@ export default function Hero() {
             <Magnetic strength={20}>
               <button
                 onClick={() => setIsResumeOpen(!isResumeOpen)}
-                className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-medium text-primary border border-white/10 bg-white/5 rounded-full overflow-hidden transition-all hover:bg-white/10 active:scale-95 interactive"
+                className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-medium text-primary border border-border bg-card dark:border-white/10 dark:bg-white/5 rounded-full overflow-hidden transition-all hover:bg-card-hover dark:hover:bg-white/10 active:scale-95 interactive"
               >
                 <Download size={16} className="text-accent" />
                 Resume
@@ -139,7 +139,7 @@ export default function Hero() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 10, scale: 0.95 }}
                   transition={{ duration: 0.2 }}
-                  className="absolute bottom-full mb-4 left-0 w-64 bg-card/90 backdrop-blur-xl border border-white/10 rounded-2xl p-2 shadow-2xl z-50 origin-bottom-left"
+                  className="absolute bottom-full mb-4 left-0 w-64 bg-background/95 dark:bg-[#0c0c0c]/90 backdrop-blur-xl border border-border dark:border-white/10 rounded-2xl p-2 shadow-xl dark:shadow-2xl z-50 origin-bottom-left"
                 >
                   <div className="p-2 space-y-1">
                     <p className="text-[10px] uppercase tracking-widest text-secondary font-bold px-3 py-1 mb-1">
@@ -148,7 +148,7 @@ export default function Hero() {
                     
                     {/* PDF OPTION */}
                     <div className="group/item">
-                      <div className="flex items-center justify-between px-3 py-2 rounded-xl hover:bg-white/5 transition-colors">
+                      <div className="flex items-center justify-between px-3 py-2 rounded-xl hover:bg-card-hover dark:hover:bg-white/5 transition-colors">
                         <div className="flex items-center gap-3">
                           <div className="w-8 h-8 rounded-lg bg-red-500/10 flex items-center justify-center group-hover/item:bg-red-500/20 transition-colors">
                             <FileText size={16} className="text-red-400" />
@@ -163,14 +163,31 @@ export default function Hero() {
                       </div>
                     </div>
 
-                    <div className="h-px bg-white/5 mx-2 my-1" />
+                    <div className="h-px bg-border dark:bg-white/5 mx-2 my-1" />
+
+                    {/* WORD OPTION */}
+                    <div className="group/item">
+                      <div className="flex items-center justify-between px-3 py-2 rounded-xl hover:bg-card-hover dark:hover:bg-white/5 transition-colors">
+                        <div className="flex items-center gap-3">
+                          <div className="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center group-hover/item:bg-blue-500/20 transition-colors">
+                            <FileText size={16} className="text-blue-400" />
+                          </div>
+                          <span className="text-sm font-medium">Word Document</span>
+                        </div>
+                      </div>
+                      <div className="flex gap-2 px-3 pb-2 ml-11">
+                        <a href="/resume.docx" download className="text-xs text-secondary hover:text-accent transition-colors">Download</a>
+                      </div>
+                    </div>
+
+                    <div className="h-px bg-border dark:bg-white/5 mx-2 my-1" />
 
                     {/* IMAGE OPTION */}
                     <div className="group/item">
-                      <div className="flex items-center justify-between px-3 py-2 rounded-xl hover:bg-white/5 transition-colors">
+                      <div className="flex items-center justify-between px-3 py-2 rounded-xl hover:bg-card-hover dark:hover:bg-white/5 transition-colors">
                         <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center group-hover/item:bg-blue-500/20 transition-colors">
-                            <ImageIcon size={16} className="text-blue-400" />
+                          <div className="w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center group-hover/item:bg-emerald-500/20 transition-colors">
+                            <ImageIcon size={16} className="text-emerald-400" />
                           </div>
                           <span className="text-sm font-medium">Image (PNG)</span>
                         </div>

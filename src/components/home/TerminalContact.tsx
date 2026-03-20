@@ -197,7 +197,7 @@ export default function TerminalContact() {
       
       <section 
         id="contact" 
-        className="relative w-full py-32 bg-[#050505] overflow-hidden flex flex-col items-center border-t border-white/5"
+        className="relative w-full py-32 bg-background overflow-hidden flex flex-col items-center border-t border-border dark:border-white/5"
         onMouseEnter={() => setIsHoveringGrid(true)}
         onMouseLeave={() => setIsHoveringGrid(false)}
       >
@@ -236,14 +236,14 @@ export default function TerminalContact() {
                 <span>Available for opportunities</span>
               </motion.div>
               
-              <h2 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-6 text-white leading-[1.1]">
+              <h2 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-6 text-primary dark:text-white leading-[1.1]">
                 Let's build <br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-400 to-zinc-600 block mt-2 pb-2">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-primary/60 dark:from-white dark:via-zinc-400 dark:to-zinc-600 block mt-2 pb-2">
                   something.
                 </span>
               </h2>
               
-              <p className="text-zinc-400 text-lg md:text-xl mb-12 max-w-lg font-light leading-relaxed">
+              <p className="text-secondary dark:text-zinc-400 text-lg md:text-xl mb-12 max-w-lg font-light leading-relaxed">
                 Whether it's a cutting-edge web application, an AI integration, or just tech banter — my inbox is always open.
               </p>
 
@@ -258,12 +258,12 @@ export default function TerminalContact() {
                   <motion.div 
                     variants={{
                       initial: { scale: 1, rotate: 0 },
-                      hover: { scale: 1.1, rotate: -10, backgroundColor: "#fff" }
+                      hover: { scale: 1.1, rotate: -10, backgroundColor: "var(--color-primary)" }
                     }}
                     transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                    className="w-14 h-14 rounded-full bg-white/10 border border-white/20 flex items-center justify-center transition-colors"
+                    className="w-14 h-14 rounded-full bg-card dark:bg-white/10 border border-border dark:border-white/20 flex items-center justify-center transition-colors"
                   >
-                    <Mail className="text-white group-hover:text-black transition-colors" size={24} />
+                    <Mail className="text-primary dark:text-white group-hover:text-background dark:group-hover:text-black transition-colors" size={24} />
                   </motion.div>
                   <div className="flex flex-col">
                     <span className="text-xs text-zinc-500 font-mono mb-1 uppercase tracking-wider group-hover:text-accent transition-colors">Direct Email</span>
@@ -285,12 +285,12 @@ export default function TerminalContact() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: 0.3 + index * 0.1 }}
-                      whileHover={{ y: -5, scale: 1.05, backgroundColor: "#fff", borderColor: "#fff" }}
+                      whileHover={{ y: -5, scale: 1.05, backgroundColor: "var(--color-primary)", borderColor: "var(--color-primary)" }}
                       whileTap={{ scale: 0.95 }}
-                      className="flex items-center space-x-3 px-6 py-4 rounded-2xl bg-white/5 border border-white/10 hover:text-black transition-all duration-300 interactive group"
+                      className="flex items-center space-x-3 px-6 py-4 rounded-2xl bg-card dark:bg-white/5 border border-border dark:border-white/10 hover:text-background dark:hover:text-black transition-all duration-300 interactive group"
                     >
-                      <span className="text-zinc-400 group-hover:text-black transition-colors">{social.icon}</span>
-                      <span className="font-mono text-sm tracking-wide font-medium text-zinc-300 group-hover:text-black transition-colors">{social.name}</span>
+                      <span className="text-secondary dark:text-zinc-400 group-hover:text-background dark:group-hover:text-black transition-colors">{social.icon}</span>
+                      <span className="font-mono text-sm tracking-wide font-medium text-primary dark:text-zinc-300 group-hover:text-background dark:group-hover:text-black transition-colors">{social.name}</span>
                     </motion.a>
                   ))}
                 </div>
@@ -321,7 +321,7 @@ export default function TerminalContact() {
               <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-transparent to-blue-500/20 opacity-0 group-hover/form:opacity-100 transition-opacity duration-700 pointer-events-none" />
               
               <form 
-                className="relative bg-[#0a0a0a]/90 backdrop-blur-xl p-8 md:p-10 rounded-[31px] space-y-6 flex flex-col z-10 shadow-2xl"
+                className="relative bg-background/95 dark:bg-[#0a0a0a]/90 backdrop-blur-xl p-8 md:p-10 rounded-[31px] space-y-6 flex flex-col z-10 shadow-2xl"
                 onSubmit={handleEmailSubmit}
               >
                 <div className="space-y-6">
@@ -333,9 +333,9 @@ export default function TerminalContact() {
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({...formData, name: e.target.value})}
-                      className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-5 outline-none focus:border-accent focus:bg-white/[0.08] transition-all duration-300 interactive text-white peer pt-7"
+                      className="w-full bg-card dark:bg-white/[0.03] border border-border dark:border-white/10 rounded-2xl px-6 py-5 outline-none focus:border-accent focus:bg-card-hover dark:focus:bg-white/[0.08] transition-all duration-300 interactive text-primary dark:text-white peer pt-7"
                     />
-                    <label htmlFor="name" className={`absolute left-6 transition-all duration-300 pointer-events-none ${formData.name ? 'top-2.5 text-[10px] text-accent font-bold uppercase tracking-wider' : 'top-5.5 text-zinc-500 text-sm'} peer-focus:top-2.5 peer-focus:text-[10px] peer-focus:text-accent font-mono`}>
+                    <label htmlFor="name" className={`absolute left-6 transition-all duration-300 pointer-events-none ${formData.name ? 'top-2.5 text-[10px] text-accent font-bold uppercase tracking-wider' : 'top-5.5 text-secondary dark:text-zinc-500 text-sm'} peer-focus:top-2.5 peer-focus:text-[10px] peer-focus:text-accent font-mono`}>
                       Your Name
                     </label>
                   </div>
@@ -348,9 +348,9 @@ export default function TerminalContact() {
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({...formData, email: e.target.value})}
-                      className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-5 outline-none focus:border-accent focus:bg-white/[0.08] transition-all duration-300 interactive text-white peer pt-7"
+                      className="w-full bg-card dark:bg-white/[0.03] border border-border dark:border-white/10 rounded-2xl px-6 py-5 outline-none focus:border-accent focus:bg-card-hover dark:focus:bg-white/[0.08] transition-all duration-300 interactive text-primary dark:text-white peer pt-7"
                     />
-                    <label htmlFor="email" className={`absolute left-6 transition-all duration-300 pointer-events-none ${formData.email ? 'top-2.5 text-[10px] text-accent font-bold uppercase tracking-wider' : 'top-5.5 text-zinc-500 text-sm'} peer-focus:top-2.5 peer-focus:text-[10px] peer-focus:text-accent font-mono`}>
+                    <label htmlFor="email" className={`absolute left-6 transition-all duration-300 pointer-events-none ${formData.email ? 'top-2.5 text-[10px] text-accent font-bold uppercase tracking-wider' : 'top-5.5 text-secondary dark:text-zinc-500 text-sm'} peer-focus:top-2.5 peer-focus:text-[10px] peer-focus:text-accent font-mono`}>
                       Your Email
                     </label>
                   </div>
@@ -363,9 +363,9 @@ export default function TerminalContact() {
                       required
                       value={formData.message}
                       onChange={(e) => setFormData({...formData, message: e.target.value})}
-                      className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-5 outline-none focus:border-accent focus:bg-white/[0.08] transition-all duration-300 interactive text-white resize-none peer pt-8 custom-scrollbar"
+                      className="w-full bg-card dark:bg-white/[0.03] border border-border dark:border-white/10 rounded-2xl px-6 py-5 outline-none focus:border-accent focus:bg-card-hover dark:focus:bg-white/[0.08] transition-all duration-300 interactive text-primary dark:text-white resize-none peer pt-8 custom-scrollbar"
                     ></textarea>
-                    <label htmlFor="message" className={`absolute left-6 transition-all duration-300 pointer-events-none ${formData.message ? 'top-3 text-[10px] text-accent font-bold uppercase tracking-wider' : 'top-6 text-zinc-500 text-sm'} peer-focus:top-3 peer-focus:text-[10px] peer-focus:text-accent font-mono`}>
+                    <label htmlFor="message" className={`absolute left-6 transition-all duration-300 pointer-events-none ${formData.message ? 'top-3 text-[10px] text-accent font-bold uppercase tracking-wider' : 'top-6 text-secondary dark:text-zinc-500 text-sm'} peer-focus:top-3 peer-focus:text-[10px] peer-focus:text-accent font-mono`}>
                       Tell me about your project...
                     </label>
                   </div>
@@ -374,7 +374,7 @@ export default function TerminalContact() {
                 <motion.button 
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full relative group overflow-hidden rounded-2xl bg-white text-black font-semibold interactive flex items-center justify-center py-5 mt-4 border border-transparent hover:border-white/50 shadow-[0_0_40px_rgba(255,255,255,0.1)] hover:shadow-[0_0_60px_rgba(255,255,255,0.2)] transition-all duration-300"
+                  className="w-full relative group overflow-hidden rounded-2xl bg-primary dark:bg-white text-background dark:text-black font-semibold interactive flex items-center justify-center py-5 mt-4 border border-transparent shadow-lg hover:shadow-xl dark:shadow-[0_0_40px_rgba(255,255,255,0.1)] dark:hover:shadow-[0_0_60px_rgba(255,255,255,0.2)] transition-all duration-300"
                   type="submit"
                 >
                   <span className="relative z-10 flex items-center space-x-2 text-lg">
