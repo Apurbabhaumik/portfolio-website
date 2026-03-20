@@ -88,7 +88,7 @@ export default function CodingProfiles() {
               />
 
               <div className="flex justify-between items-start z-10">
-                <h4 className="text-xl font-bold text-primary group-hover:text-transparent group-hover:bg-clip-text transition-colors" style={{ backgroundImage: `linear-gradient(to right, currentColor, ${profile.color})` }}>
+                <h4 className="text-xl font-bold text-primary transition-colors">
                   {profile.name}
                 </h4>
                 <ExternalLink size={20} className="text-secondary group-hover:text-primary transition-colors" />
