@@ -80,10 +80,10 @@ export default function ProjectsGallery() {
                 )}
                 style={{ backgroundImage: `url(${project.image})` }}
               >
-                <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors duration-500" />
+                <div className="absolute inset-0 bg-white/80 dark:bg-black/60 group-hover:bg-white/60 dark:group-hover:bg-black/40 transition-colors duration-500" />
               </motion.div>
 
-              <div className="absolute bottom-0 left-0 p-8 w-full z-10 flex flex-col justify-end h-full bg-gradient-to-t from-black/90 via-black/50 to-transparent">
+              <div className="absolute bottom-0 left-0 p-8 w-full z-10 flex flex-col justify-end h-full bg-gradient-to-t from-white/90 via-white/50 to-transparent dark:from-black/90 dark:via-black/50">
                 <motion.span 
                   layoutId={`project-category-${project.id}`}
                   className="text-xs font-mono mb-3 block"
@@ -93,7 +93,7 @@ export default function ProjectsGallery() {
                 </motion.span>
                 <motion.h3 
                   layoutId={`project-title-${project.id}`}
-                  className="text-2xl font-bold text-white mb-2"
+                  className="text-2xl font-bold text-black dark:text-white mb-2"
                 >
                   {project.title}
                 </motion.h3>
@@ -105,7 +105,7 @@ export default function ProjectsGallery() {
                   }}
                   className="overflow-hidden"
                 >
-                  <p className="text-sm text-zinc-200 mt-2 line-clamp-2">
+                  <p className="text-sm text-zinc-700 dark:text-zinc-200 mt-2 line-clamp-2">
                     {project.description}
                   </p>
                 </motion.div>
@@ -122,7 +122,7 @@ export default function ProjectsGallery() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-12 bg-black/60 dark:bg-black/80 backdrop-blur-md"
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-12 bg-white/60 dark:bg-black/80 backdrop-blur-md"
             onClick={() => setActiveProject(null)}
           >
             <motion.div

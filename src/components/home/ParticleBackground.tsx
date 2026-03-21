@@ -4,9 +4,13 @@ import { useRef, useMemo } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 import { Points, PointMaterial } from "@react-three/drei";
 import * as THREE from "three";
+import { useTheme } from "../layout/ThemeProvider";
 
 export default function ParticleBackground() {
   const ref = useRef<THREE.Points>(null);
+  const { theme } = useTheme();
+  
+  const isLight = theme === "light";
 
   const count = 5000;
   const positions = useMemo(() => {
@@ -43,12 +47,12 @@ export default function ParticleBackground() {
       <Points ref={ref} positions={positions} stride={3} frustumCulled={false}>
         <PointMaterial
           transparent
-          color="#00ffcc"
-          size={0.05}
+          color={isLight ? "#ff3300" : "#00ffcc"}
+          size={isLight ? 0.06 : 0.05}
           sizeAttenuation={true}
           depthWrite={false}
-          opacity={0.6}
-          blending={THREE.AdditiveBlending}
+          opacity={isLight ? 0.8 : 0.6}
+          blending={isLight ? THREE.NormalBlending : THREE.AdditiveBlending}
         />
       </Points>
     </group>
