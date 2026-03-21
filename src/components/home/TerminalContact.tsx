@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Terminal, Send, Mail, Github, Linkedin, Sparkles } from "lucide-react";
+import { Terminal, Send, Mail, Github, Linkedin, Sparkles, Phone } from "lucide-react";
 
 // Easter Egg Component
 const MatrixRain = ({ onClose }: { onClose: () => void }) => {
@@ -266,9 +266,34 @@ export default function TerminalContact() {
                     <Mail className="text-primary dark:text-white group-hover:text-background dark:group-hover:text-black transition-colors" size={24} />
                   </motion.div>
                   <div className="flex flex-col">
-                    <span className="text-xs text-zinc-500 font-mono mb-1 uppercase tracking-wider group-hover:text-accent transition-colors">Direct Email</span>
-                    <span className="text-xl md:text-2xl font-medium text-zinc-300 group-hover:text-white transition-colors">
+                    <span className="text-xs text-secondary dark:text-zinc-500 font-mono mb-1 uppercase tracking-wider group-hover:text-accent transition-colors">Direct Email</span>
+                    <span className="text-xl md:text-2xl font-medium text-primary dark:text-zinc-300 group-hover:text-background dark:group-hover:text-white transition-colors">
                       apurbabhaumik007@gmail.com
+                    </span>
+                  </div>
+                </motion.a>
+
+                {/* Direct Phone Link - Interactive */}
+                <motion.a 
+                  href="tel:+917005451814"
+                  initial="initial"
+                  whileHover="hover"
+                  className="group relative flex items-center space-x-5 w-fit interactive p-2 pr-6 rounded-full bg-transparent hover:bg-card-hover dark:hover:bg-white/5 transition-colors border border-transparent hover:border-border dark:hover:border-white/10"
+                >
+                  <motion.div 
+                    variants={{
+                      initial: { scale: 1, rotate: 0 },
+                      hover: { scale: 1.1, rotate: 10, backgroundColor: "var(--color-primary)" }
+                    }}
+                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                    className="w-14 h-14 rounded-full bg-card dark:bg-white/10 border border-border dark:border-white/20 flex items-center justify-center transition-colors shadow-sm"
+                  >
+                    <Phone className="text-primary dark:text-white group-hover:text-background dark:group-hover:text-black transition-colors" size={24} />
+                  </motion.div>
+                  <div className="flex flex-col">
+                    <span className="text-xs text-secondary dark:text-zinc-500 font-mono mb-1 uppercase tracking-wider group-hover:text-accent transition-colors">Direct Phone</span>
+                    <span className="text-xl md:text-2xl font-medium text-primary dark:text-zinc-300 group-hover:text-background dark:group-hover:text-white transition-colors">
+                      +91 7005451814
                     </span>
                   </div>
                 </motion.a>
