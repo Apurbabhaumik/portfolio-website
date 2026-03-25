@@ -1,3 +1,4 @@
+import IntroScreen from "@/components/home/IntroScreen";
 import Hero from "@/components/home/Hero";
 import AboutMe from "@/components/home/AboutMe";
 import Education from "@/components/home/Education";
@@ -12,6 +13,7 @@ import TerminalContact from "@/components/home/TerminalContact";
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
+      <IntroScreen />
       <Hero />
       <AboutMe />
       <Education />
