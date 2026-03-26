@@ -49,7 +49,7 @@ export default function ScrambleText({
     return () => {
       clearTimeout(timeout);
     };
-  }, [text, delay]);
+  }, [text, delay, start]);
 
   return <span className={className}>{displayText}</span>;
 }
