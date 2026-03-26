@@ -25,6 +25,20 @@ export default function Hero() {
   const [quote, setQuote] = useState("");
   const [isResumeOpen, setIsResumeOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const [introFinished, setIntroFinished] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const isIntroPlaying = sessionStorage.getItem("introPlaying") === "true";
+      if (isIntroPlaying) {
+        const handleIntroFinished = () => setIntroFinished(true);
+        window.addEventListener("introFinished", handleIntroFinished);
+        return () => window.removeEventListener("introFinished", handleIntroFinished);
+      } else {
+        setIntroFinished(true);
+      }
+    }
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -55,7 +69,7 @@ export default function Hero() {
       <div className="relative z-10 w-full max-w-6xl px-6 md:px-12 flex flex-col items-start justify-center">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={introFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
           className="overflow-hidden"
         >
@@ -66,13 +80,13 @@ export default function Hero() {
 
         <motion.div
           initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={introFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
         >
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[1.1] text-primary mb-6 flex flex-wrap gap-x-4">
-            <ScrambleText text="Apurba" delay={400} />
+            <ScrambleText text="Apurba" delay={400} start={introFinished} />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent-dark inline-block min-w-[4ch]">
-              <ScrambleText text="Bhaumik" delay={1200} />
+              <ScrambleText text="Bhaumik" delay={1200} start={introFinished} />
             </span>
           </h1>
         </motion.div>
@@ -83,7 +97,7 @@ export default function Hero() {
               <motion.div
                 key={quote}
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                animate={introFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
               >
@@ -97,7 +111,7 @@ export default function Hero() {
 
         <motion.div
           initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={introFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
           className="mt-6 flex flex-wrap items-center gap-4"
         >
@@ -209,7 +223,7 @@ export default function Hero() {
       {/* Scroll Indicator */}
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        animate={introFinished ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 1, delay: 1.2 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center"
       >

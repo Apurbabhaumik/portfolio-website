@@ -23,6 +23,9 @@ export default function IntroScreen() {
       if (!hasSeenIntro) {
         setShowIntro(true);
         sessionStorage.setItem("hasSeenIntro", "true");
+        sessionStorage.setItem("introPlaying", "true");
+      } else {
+        sessionStorage.removeItem("introPlaying");
       }
     }
   }, []);
@@ -40,6 +43,8 @@ export default function IntroScreen() {
         // Once all commands have printed, hold for a moment then fade out
         const timeout = setTimeout(() => {
           setShowIntro(false);
+          sessionStorage.removeItem("introPlaying");
+          window.dispatchEvent(new Event("introFinished"));
         }, 1000);
         return () => clearTimeout(timeout);
       }

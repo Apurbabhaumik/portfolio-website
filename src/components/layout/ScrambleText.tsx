@@ -8,14 +8,17 @@ export default function ScrambleText({
   text,
   className,
   delay = 0,
+  start = true,
 }: {
   text: string;
   className?: string;
   delay?: number;
+  start?: boolean;
 }) {
   const [displayText, setDisplayText] = useState("");
 
   useEffect(() => {
+    if (!start) return;
     let timeout: NodeJS.Timeout;
     let iteration = 0;
 
