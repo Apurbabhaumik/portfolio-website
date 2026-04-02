@@ -183,7 +183,7 @@ export default function Education() {
   }, []);
 
   return (
-    <section id="education" className="relative w-full min-h-screen py-32 bg-background overflow-hidden" ref={containerRef}>
+    <section id="education" className="relative w-full min-h-screen py-32 bg-transparent overflow-hidden" ref={containerRef}>
       <div className="container mx-auto px-6 md:px-12">
         <div className="flex flex-col md:flex-row gap-16 md:gap-32">
           

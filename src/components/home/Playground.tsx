@@ -203,7 +203,7 @@ export default function Playground() {
   };
 
   return (
-    <section id="playground" className="relative w-full py-32 bg-background dark:bg-[#050505] overflow-hidden">
+    <section id="playground" className="relative w-full py-32 bg-transparent overflow-hidden">
       <div className="container mx-auto px-6 md:px-12">
         <div className="mb-16">
           <motion.h2 
@@ -225,7 +225,7 @@ export default function Playground() {
           </motion.p>
         </div>
 
-        <div className="bg-card dark:bg-[#0a0a0a] border border-border dark:border-white/10 rounded-3xl p-6 md:p-12 shadow-2xl flex flex-col md:flex-row gap-8 min-h-[500px]">
+        <div className="bg-white/10 dark:bg-black/40 backdrop-blur-xl border border-border dark:border-white/10 rounded-3xl p-6 md:p-12 shadow-2xl flex flex-col md:flex-row gap-8 min-h-[500px]">
           
           {/* Game Selector Sidebar */}
           <div className="flex flex-row md:flex-col gap-2 overflow-x-auto pb-4 md:pb-0 md:w-48 border-b md:border-b-0 md:border-r border-border dark:border-white/10 md:pr-6 scrollbar-hide">

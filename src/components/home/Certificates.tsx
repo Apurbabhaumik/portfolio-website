@@ -273,7 +273,7 @@ const CertificateCard = ({ cert, index }: { cert: Certificate; index: number }) 
 
 export default function Certificates() {
   return (
-    <section id="certificates" className="relative w-full py-32 bg-background overflow-hidden border-t border-border">
+    <section id="certificates" className="relative w-full py-32 bg-transparent overflow-hidden border-t border-border">
       <div className="container mx-auto px-6 md:px-12 relative z-10 w-full">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
           <motion.div

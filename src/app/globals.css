@@ -30,12 +30,12 @@
 }
 
 .dark {
-  --background: #050505;
+  --background: #06020c;
   --foreground: #ededed;
   --primary: #ffffff;
   --secondary: #a3a3a3;
-  --accent: #00ffcc;
-  --accent-dark: #00b38f;
+  --accent: #ff3333;
+  --accent-dark: #b32424;
   --card: rgba(255, 255, 255, 0.03);
   --card-hover: rgba(255, 255, 255, 0.08);
   --border: rgba(255, 255, 255, 0.1);

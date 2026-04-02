@@ -38,7 +38,7 @@ const profiles = [
 
 export default function CodingProfiles() {
   return (
-    <section id="profiles" className="relative w-full py-32 bg-background overflow-hidden border-t border-border">
+    <section id="profiles" className="relative w-full py-32 bg-transparent overflow-hidden border-t border-border">
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
@@ -78,7 +78,7 @@ export default function CodingProfiles() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, type: "spring", stiffness: 200, damping: 20 }}
               whileHover={{ y: -5, borderColor: profile.color }}
-              className="group relative flex flex-col justify-between h-48 p-8 bg-card border border-border rounded-2xl overflow-hidden interactive transition-all duration-300 hover:shadow-2xl"
+              className="group relative flex flex-col justify-between h-48 p-8 bg-white/5 dark:bg-black/40 backdrop-blur-md border border-border rounded-2xl overflow-hidden interactive transition-all duration-300 hover:shadow-2xl"
               style={{ boxShadow: `0 0 0 0 ${profile.color}00` }}
             >
               {/* Background Glow */}

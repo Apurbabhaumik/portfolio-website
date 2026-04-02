@@ -48,7 +48,7 @@ export default function ProjectsGallery() {
   const activeData = projects.find((p) => p.id === activeProject);
 
   return (
-    <section id="projects" className="relative w-full min-h-screen py-32 bg-background dark:bg-[#030303]">
+    <section id="projects" className="relative w-full min-h-screen py-32 bg-transparent">
       <div className="container mx-auto px-6 md:px-12">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -65,7 +65,7 @@ export default function ProjectsGallery() {
             <motion.div
               layoutId={`project-container-${project.id}`}
               key={project.id}
-              className="group relative cursor-pointer block h-[400px] rounded-2xl overflow-hidden bg-card border border-border interactive"
+              className="group relative cursor-pointer block h-[400px] rounded-2xl overflow-hidden bg-white/5 dark:bg-black/40 backdrop-blur-md border border-border interactive"
               onClick={() => setActiveProject(project.id)}
               onHoverStart={() => setHoveredProject(project.id)}
               onHoverEnd={() => setHoveredProject(null)}
@@ -127,7 +127,7 @@ export default function ProjectsGallery() {
           >
             <motion.div
               layoutId={`project-container-${activeData.id}`}
-              className="w-full max-w-5xl h-[80vh] md:h-auto bg-background dark:bg-[#0a0a0a] rounded-3xl overflow-hidden border border-border dark:border-border/50 flex flex-col md:flex-row shadow-2xl"
+              className="w-full max-w-5xl h-[80vh] md:h-auto bg-white/80 dark:bg-black/60 backdrop-blur-3xl rounded-3xl overflow-hidden border border-border dark:border-border/50 flex flex-col md:flex-row shadow-[0_0_50px_rgba(0,0,0,0.8)]"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Image Side */}

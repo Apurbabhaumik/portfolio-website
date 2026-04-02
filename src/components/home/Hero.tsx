@@ -1,17 +1,10 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
-import { Canvas } from "@react-three/fiber";
 import { motion, AnimatePresence } from "framer-motion";
 import { Download, FileText, Image as ImageIcon, ChevronDown } from "lucide-react";
 import Magnetic from "@/components/layout/Magnetic";
 import ScrambleText from "@/components/layout/ScrambleText";
-import dynamic from "next/dynamic";
-
-// Dynamically import heavy 3D models to improve Initial Load / TTI
-const ParticleBackground = dynamic(() => import("./ParticleBackground"), {
-  ssr: false,
-});
 
 const quotes = [
   "Building systems, exploring ideas, and turning code into experiences.",
@@ -58,13 +51,6 @@ export default function Hero() {
 
   return (
     <section className="relative w-full h-screen flex flex-col items-center justify-center overflow-hidden">
-      {/* 3D Background */}
-      <div className="absolute inset-0 z-0 opacity-50">
-        <Canvas camera={{ position: [0, 0, 1] }}>
-          <ParticleBackground />
-        </Canvas>
-      </div>
-
       {/* Main Content */}
       <div className="relative z-10 w-full max-w-6xl px-6 md:px-12 flex flex-col items-start justify-center">
         <motion.div

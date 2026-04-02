@@ -14,6 +14,7 @@ const navLinks = [
   { name: "Profiles", href: "#profiles" },
   { name: "Certifications", href: "#certificates" },
   { name: "Playground", href: "#playground" },
+  { name: "Contact", href: "#contact" },
 ];
 
 export default function Navbar() {
@@ -67,6 +68,12 @@ export default function Navbar() {
             <Linkedin size={18} />
           </Link>
           <ThemeToggle />
+          
+          <Link href="#contact" className="flex items-center gap-2 px-4 py-2 bg-accent hover:bg-accent-dark text-white border border-accent/50 rounded-full text-xs font-bold tracking-wider uppercase transition-all interactive shadow-[0_0_15px_rgba(255,51,51,0.3)] hover:shadow-[0_0_25px_rgba(255,51,51,0.5)] hover:-translate-y-0.5">
+            <Mail size={14} />
+            Contact
+          </Link>
+
           <div className="relative" onMouseLeave={() => setIsResumeOpen(false)}>
             <button
               onClick={() => setIsResumeOpen(!isResumeOpen)}
@@ -143,7 +150,14 @@ export default function Navbar() {
                   <Linkedin size={20} />
                 </Link>
                 <ThemeToggle />
-                <div className="flex flex-col items-center gap-2 w-full">
+              </div>
+              
+              <Link href="#contact" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-2 px-8 py-3 bg-accent hover:bg-accent-dark text-white rounded-full text-sm font-bold tracking-wider uppercase transition-all interactive shadow-lg">
+                <Mail size={16} />
+                Contact Me
+              </Link>
+              
+              <div className="flex flex-col items-center gap-2 w-full pt-4 border-t border-border mt-4">
                   <span className="text-xs text-secondary font-mono uppercase tracking-widest mb-1">Download Resume</span>
                   <div className="flex gap-2">
                     <a href="/resume.pdf" download className="flex items-center gap-1 px-3 py-1.5 bg-white/10 rounded-full text-xs font-medium transition-all interactive hover:bg-white/20">
@@ -157,7 +171,6 @@ export default function Navbar() {
                     </a>
                   </div>
                 </div>
-              </div>
             </div>
           </motion.div>
         )}

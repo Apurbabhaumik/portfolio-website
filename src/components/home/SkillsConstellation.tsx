@@ -67,7 +67,7 @@ export default function SkillsConstellation() {
   const filterSkills = activeCategory === "All" ? skills : skills.filter(s => s.category === activeCategory);
 
   return (
-    <section id="skills" className="relative w-full min-h-screen py-32 bg-background dark:bg-[#050505] overflow-hidden flex flex-col items-center justify-center border-t border-border dark:border-white/5">
+    <section id="skills" className="relative w-full min-h-screen py-32 bg-transparent overflow-hidden flex flex-col items-center justify-center border-t border-border dark:border-white/5">
       
       {/* Background glow effects */}
       <div className="absolute top-1/3 left-1/4 w-[40rem] h-[40rem] bg-accent/5 rounded-full blur-[120px] mix-blend-multiply dark:mix-blend-screen pointer-events-none" />
@@ -130,7 +130,7 @@ export default function SkillsConstellation() {
         </motion.div>
       </div>
 
-      <div className="relative w-full max-w-6xl h-[70vh] rounded-[3rem] bg-card/80 dark:bg-[#0A0A0A]/80 backdrop-blur-3xl overflow-hidden mx-6 border border-border dark:border-white/10 shadow-2xl group/canvas">
+      <div className="relative w-full max-w-6xl h-[70vh] rounded-[3rem] bg-black/20 backdrop-blur-2xl overflow-hidden mx-6 border border-border dark:border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.5)] dark:hover:shadow-[0_0_80px_rgba(255,255,255,0.05)] transition-shadow duration-700 group/canvas">
         {/* Draw subtle grid background */}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.05)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_70%_70%_at_50%_50%,#000_30%,transparent_100%)] transition-opacity duration-700 opacity-50 group-hover/canvas:opacity-100"></div>
 
@@ -186,7 +186,7 @@ export default function SkillsConstellation() {
                 damping: 20, 
                 opacity: { duration: 0.4 }
               }}
-              className="absolute flex items-center justify-center px-5 flex-col py-3 bg-card/90 dark:bg-[#0c0c0c]/80 backdrop-blur-sm border rounded-full cursor-grab interactive text-sm font-medium transition-colors shadow-2xl group/node text-primary dark:text-white"
+              className="absolute flex items-center justify-center px-5 flex-col py-3 bg-white/5 dark:bg-black/50 backdrop-blur-md border rounded-full cursor-grab interactive text-sm font-medium transition-colors shadow-xl hover:shadow-2xl hover:bg-white/10 dark:hover:bg-black/70 group/node text-primary dark:text-white"
               style={{ 
                 left: `${skill.x}%`, 
                 top: `${skill.y}%`, 

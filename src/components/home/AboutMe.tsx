@@ -29,7 +29,7 @@ export default function AboutMe() {
   const y = useTransform(scrollYProgress, [0, 1], [100, 0]);
 
   return (
-    <section ref={containerRef} id="about-me" className="relative w-full py-40 bg-background overflow-hidden flex items-center justify-center">
+    <section ref={containerRef} id="about-me" className="relative w-full py-40 bg-transparent overflow-hidden flex items-center justify-center">
       
       {/* Abstract Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">

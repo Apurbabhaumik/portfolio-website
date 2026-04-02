@@ -176,14 +176,6 @@ export default function TerminalContact() {
     setCommandInput("");
   };
 
-  const handleEmailSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Directly open Gmail compose window
-    const subject = encodeURIComponent(`New Contact from ${formData.name}`);
-    const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
-    window.location.href = `mailto:apurbabhaumik007@gmail.com?subject=${subject}&body=${body}`;
-  };
-
   const socialLinks = [
     { name: "GitHub", url: "https://github.com/Apurbabhaumik", icon: <Github size={20} /> },
     { name: "LinkedIn", url: "https://www.linkedin.com/in/apurbabhaumik77", icon: <Linkedin size={20} /> },
@@ -197,7 +189,7 @@ export default function TerminalContact() {
       
       <section 
         id="contact" 
-        className="relative w-full py-32 bg-background overflow-hidden flex flex-col items-center border-t border-border dark:border-white/5"
+        className="relative w-full py-32 bg-transparent overflow-hidden flex flex-col items-center border-t border-border dark:border-white/5"
         onMouseEnter={() => setIsHoveringGrid(true)}
         onMouseLeave={() => setIsHoveringGrid(false)}
       >
@@ -346,15 +338,22 @@ export default function TerminalContact() {
               <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-transparent to-blue-500/20 opacity-0 group-hover/form:opacity-100 transition-opacity duration-700 pointer-events-none" />
               
               <form 
-                className="relative bg-background/95 dark:bg-[#0a0a0a]/90 backdrop-blur-xl p-8 md:p-10 rounded-[31px] space-y-6 flex flex-col z-10 shadow-2xl"
-                onSubmit={handleEmailSubmit}
+                action="https://formsubmit.co/apurbabhaumik007@gmail.com"
+                method="POST"
+                className="relative bg-black/40 backdrop-blur-3xl p-8 md:p-10 rounded-[31px] space-y-6 flex flex-col z-10 shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-white/5"
               >
+                {/* FormSubmit Configuration */}
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_subject" value="New Contact from Portfolio!" />
+                <input type="hidden" name="_next" value={typeof window !== 'undefined' ? window.location.href : ''} />
+
                 <div className="space-y-6">
                   {/* Name Input */}
                   <div className="relative group">
                     <input 
                       type="text" 
                       id="name"
+                      name="name"
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({...formData, name: e.target.value})}
@@ -370,6 +369,7 @@ export default function TerminalContact() {
                     <input 
                       type="email" 
                       id="email"
+                      name="email"
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({...formData, email: e.target.value})}
@@ -384,6 +384,7 @@ export default function TerminalContact() {
                   <div className="relative group">
                     <textarea 
                       id="message"
+                      name="message"
                       rows={5}
                       required
                       value={formData.message}
@@ -403,7 +404,7 @@ export default function TerminalContact() {
                   type="submit"
                 >
                   <span className="relative z-10 flex items-center space-x-2 text-lg">
-                    <span>Send via Gmail</span>
+                    <span>Send Message</span>
                     <Send size={18} className="transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                   </span>
                   <div className="absolute inset-0 bg-gradient-to-r from-zinc-200 to-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out" />

@@ -29,7 +29,7 @@ const achievements = [
 
 export default function Achievements() {
   return (
-    <section id="achievements" className="relative w-full py-32 bg-background overflow-hidden">
+    <section id="achievements" className="relative w-full py-32 bg-transparent overflow-hidden">
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         
         <div className="text-center max-w-2xl mx-auto mb-20">
@@ -60,7 +60,7 @@ export default function Achievements() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.2, duration: 0.8, ease: "easeOut" }}
-              className="group relative bg-[#0a0a0a] rounded-3xl p-10 border border-white/5 hover:border-white/20 transition-all duration-300 interactive shadow-2xl hover:shadow-[0_20px_40px_rgba(0,255,204,0.05)]"
+              className="group relative bg-black/30 backdrop-blur-xl rounded-3xl p-10 border border-white/10 hover:border-accent/30 transition-all duration-500 interactive shadow-2xl hover:shadow-[0_0_40px_rgba(255,51,51,0.15)]"
             >
               {item.icon}
               <div className="flex items-center justify-between mb-2">
