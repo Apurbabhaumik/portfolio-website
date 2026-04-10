@@ -22,7 +22,7 @@ A personal portfolio website built with Next.js and TypeScript, designed to be f
 
 This is my personal portfolio — a fully responsive web application that serves as a central hub for my work, skills, and background. It is built with a focus on performance, clean code, and a minimal aesthetic.
 
-**Live site:** [portfolio-website-apurbabhaumik.vercel.app]((https://portfolio-website-opal-kappa.vercel.app/))
+**Live site:** [portfolio-website-apurbabhaumik.vercel.app]([https://portfolio-website-opal-kappa.vercel.app/])
 
 ---
 
